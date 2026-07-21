@@ -168,49 +168,13 @@ describe("Problema de paràmetre objecte", () => {
 // Repte 7:
 // Has de solucionar aquest error de tipus esbrinant com representar arrays.
 // */
-describe("Problema d'arrays", () => {
-  interface User {
-    id: number;
-    firstName: string;
-    lastName: string;
-    role: "admin" | "user" | "super-admin";
-    posts: Post[];
-  }
-
-  interface Post {
-    id: number;
-    title: string;
-  }
-
-  const defaultUser: User = {
-    id: 1,
-    firstName: "Jen",
-    lastName: "Simmons",
-    role: "admin",
-    posts: [
-      {
-        id: 1,
-        title: "Com menjo tant de formatge",
-      },
-      {
-        id: 2,
-        title: "Per què no menjo més verdures",
-      },
-    ],
-  };
-});
-
-// /*
-// Repte 8:
-// Anota la funció makeUser perquè sempre retorni un User.
-// */
-// describe("Problema d'anotacions de tipus de retorn de funció", () => {
+// describe("Problema d'arrays", () => {
 //   interface User {
 //     id: number;
 //     firstName: string;
 //     lastName: string;
 //     role: "admin" | "user" | "super-admin";
-//     posts: Array<Post>;
+//     posts: Post[];
 //   }
 
 //   interface Post {
@@ -218,26 +182,71 @@ describe("Problema d'arrays", () => {
 //     title: string;
 //   }
 
-//   /**
-//    * Com ens assegurem que makeUser SEMPRE
-//    * retorni un usuari?
-//    */
-//   const makeUser = () => {
-//     return {};
+//   const defaultUser: User = {
+//     id: 1,
+//     firstName: "Jen",
+//     lastName: "Simmons",
+//     role: "admin",
+//     posts: [
+//       {
+//         id: 1,
+//         title: "Com menjo tant de formatge",
+//       },
+//       {
+//         id: 2,
+//         title: "Per què no menjo més verdures",
+//       },
+//     ],
 //   };
-
-//   it("Ha de retornar un usuari vàlid", () => {
-//     const user = makeUser();
-
-//     expect(user.id).toBeTypeOf("number");
-//     expect(user.firstName).toBeTypeOf("string");
-//     expect(user.lastName).toBeTypeOf("string");
-//     expect(user.role).to.be.oneOf(["super-admin", "admin", "user"]);
-
-//     expect(user.posts[0].id).toBeTypeOf("number");
-//     expect(user.posts[0].title).toBeTypeOf("string");
-//   });
 // });
+
+// /*
+// Repte 8:
+// Anota la funció makeUser perquè sempre retorni un User.
+// */
+describe("Problema d'anotacions de tipus de retorn de funció", () => {
+  interface User {
+    id: number;
+    firstName: string;
+    lastName: string;
+    role: "admin" | "user" | "super-admin";
+    posts: Array<Post>;
+  }
+
+  interface Post {
+    id: number;
+    title: string;
+  }
+
+  /**
+   * Com ens assegurem que makeUser SEMPRE
+   * retorni un usuari?
+   */
+  const makeUser = (): User => {
+    return {
+      id: 1,
+      firstName: "John",
+      lastName: "Doe",
+      role: "admin",
+      posts: [{
+          id: 1,
+          title: "My first post",
+        },],
+    };
+  };
+
+  it("Ha de retornar un usuari vàlid", () => {
+    const user = makeUser();
+
+    expect(user.id).toBeTypeOf("number");
+    expect(user.firstName).toBeTypeOf("string");
+    expect(user.lastName).toBeTypeOf("string");
+    expect(user.role).to.be.oneOf(["super-admin", "admin", "user"]);
+
+    expect(user.posts[0].id).toBeTypeOf("number");
+    expect(user.posts[0].title).toBeTypeOf("string");
+  });
+});
 
 // /*
 // Repte 9:
