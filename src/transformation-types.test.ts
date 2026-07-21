@@ -197,7 +197,7 @@ import { Equal, Expect } from "./helpers/type-utils";
 // Repte 9:
 // Dona un exemple de terminologia: union, discriminated union i enum.
 // */
-describe("Transformació: terminologia de tipus", () => {
+// describe("Transformació: terminologia de tipus", () => {
   /**
    * És important entendre la terminologia sobre unions:
    *
@@ -207,7 +207,7 @@ describe("Transformació: terminologia de tipus", () => {
    *
    * Quina és quina?
    */
-  // és discriminated union
+//   // és discriminated union
 //   type A =
 //     | {
 //         type: "a";
