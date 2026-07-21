@@ -177,59 +177,59 @@ import { Equal, Expect } from "./helpers/type-utils";
 // Repte 8:
 // Utilitza indexed access types per obtenir el tipus dels valors d'un objecte amb as const.
 // */
-describe("Transformació: obtenir el tipus dels valors d'un objecte amb as const", () => {
-  const frontendToBackendEnumMap = {
-    singleModule: "SINGLE_MODULE",
-    multiModule: "MULTI_MODULE",
-    sharedModule: "SHARED_MODULE",
-  } as const;
+// describe("Transformació: obtenir el tipus dels valors d'un objecte amb as const", () => {
+//   const frontendToBackendEnumMap = {
+//     singleModule: "SINGLE_MODULE",
+//     multiModule: "MULTI_MODULE",
+//     sharedModule: "SHARED_MODULE",
+//   } as const;
 
-  type BackendModuleEnum = (typeof frontendToBackendEnumMap)[keyof typeof frontendToBackendEnumMap];
+//   type BackendModuleEnum = (typeof frontendToBackendEnumMap)[keyof typeof frontendToBackendEnumMap];
 
-  type tests = [
-    Expect<
-      Equal<BackendModuleEnum, "SINGLE_MODULE" | "MULTI_MODULE" | "SHARED_MODULE">
-    >,
-  ];
-});
+//   type tests = [
+//     Expect<
+//       Equal<BackendModuleEnum, "SINGLE_MODULE" | "MULTI_MODULE" | "SHARED_MODULE">
+//     >,
+//   ];
+// });
 
 // /*
 // Repte 9:
 // Dona un exemple de terminologia: union, discriminated union i enum.
 // */
-// describe("Transformació: terminologia de tipus", () => {
-//   /**
-//    * És important entendre la terminologia sobre unions:
-//    *
-//    * Una de les declaracions de tipus següents és una union.
-//    * Una de les declaracions de tipus següents és una discriminated union.
-//    * Una de les declaracions de tipus següents és un enum.
-//    *
-//    * Quina és quina?
-//    */
-
-//   type A =
-//     | {
-//         type: "a";
-//         a: string;
-//       }
-//     | {
-//         type: "b";
-//         b: string;
-//       }
-//     | {
-//         type: "c";
-//         c: string;
-//       };
-
-//   type B = "a" | "b" | "c";
-
-//   enum C {
-//     A = "a",
-//     B = "b",
-//     C = "c",
-//   }
-// });
+describe("Transformació: terminologia de tipus", () => {
+  /**
+   * És important entendre la terminologia sobre unions:
+   *
+   * Una de les declaracions de tipus següents és una union.
+   * Una de les declaracions de tipus següents és una discriminated union.
+   * Una de les declaracions de tipus següents és un enum.
+   *
+   * Quina és quina?
+   */
+  // és discriminated union
+  type A =
+    | {
+        type: "a";
+        a: string;
+      }
+    | {
+        type: "b";
+        b: string;
+      }
+    | {
+        type: "c";
+        c: string;
+      };
+  // és  union
+  type B = "a" | "b" | "c";
+  // és enum
+  enum C {
+    A = "a",
+    B = "b",
+    C = "c",
+  }
+});
 
 // /*
 // Repte 10:
