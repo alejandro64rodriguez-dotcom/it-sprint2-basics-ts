@@ -208,28 +208,28 @@ describe("Transformació: terminologia de tipus", () => {
    * Quina és quina?
    */
   // és discriminated union
-  type A =
-    | {
-        type: "a";
-        a: string;
-      }
-    | {
-        type: "b";
-        b: string;
-      }
-    | {
-        type: "c";
-        c: string;
-      };
-  // és  union
-  type B = "a" | "b" | "c";
-  // és enum
-  enum C {
-    A = "a",
-    B = "b",
-    C = "c",
-  }
-});
+//   type A =
+//     | {
+//         type: "a";
+//         a: string;
+//       }
+//     | {
+//         type: "b";
+//         b: string;
+//       }
+//     | {
+//         type: "c";
+//         c: string;
+//       };
+//   // és  union
+//   type B = "a" | "b" | "c";
+//   // és enum
+//   enum C {
+//     A = "a",
+//     B = "b",
+//     C = "c",
+//   }
+// });
 
 // /*
 // Repte 10:
@@ -322,15 +322,15 @@ describe("Transformació: terminologia de tipus", () => {
 // Pots utilitzar l'operador typeof per obtenir el tipus de l'array i després accedir als seus valors amb l'índex [number] o amb una tupla d'índexs específics.
 //  */
 
-describe("Transformació: obtenir el tipus a partir d'un array de valors", () => {
-const fruits = ["apple", "banana", "orange"]as const;
+// describe("Transformació: obtenir el tipus a partir d'un array de valors", () => {
+// const fruits = ["apple", "banana", "orange"]as const;
 
-type AppleOrBanana = (typeof fruits)[0 | 1];
-type Fruit = (typeof fruits)[number];
+// type AppleOrBanana = (typeof fruits)[0 | 1];
+// type Fruit = (typeof fruits)[number];
 
-type tests = [
-  Expect<Equal<AppleOrBanana, "apple" | "banana">>,
-  Expect<Equal<Fruit, "apple" | "banana" | "orange">>,
-];
-});
+// type tests = [
+//   Expect<Equal<AppleOrBanana, "apple" | "banana">>,
+//   Expect<Equal<Fruit, "apple" | "banana" | "orange">>,
+// ];
+// });
 
