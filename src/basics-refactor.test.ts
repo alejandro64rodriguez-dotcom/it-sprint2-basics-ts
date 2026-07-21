@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { assertType, describe, expect, expectTypeOf, it } from "vitest";
 import { Equal, Expect } from "./helpers/type-utils";
 
@@ -490,46 +491,46 @@ describe("Problema de paràmetre objecte", () => {
 // Pista: revisa els Utility Types Pick i Omit.
 // */
 
-describe("Problema d'Omit i Pick", () => {
-  interface User {
-    id: string;
-    firstName: string;
-    lastName: string;
-  }
+// describe("Problema d'Omit i Pick", () => {
+//   interface User {
+//     id: string;
+//     firstName: string;
+//     lastName: string;
+//   }
 
-  /**
-   * Com creem un nou tipus d'objecte amb NOMÉS les propietats
-   * firstName i lastName de User?
-   */
+//   /**
+//    * Com creem un nou tipus d'objecte amb NOMÉS les propietats
+//    * firstName i lastName de User?
+//    */
 
-  type MyType = Pick<User, "firstName" | "lastName">;
+//   type MyType = Pick<User, "firstName" | "lastName">;
 
-  type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];
-});
+//   type tests = [Expect<Equal<MyType, { firstName: string; lastName: string }>>];
+// });
 
 // /*
 // Repte 17:
 // La funció 'onFocusChange' is actualment 'unknown'. Visita la documentació de TypeScript i esbrina el tipus apropiat per la funció.
 // */
 
-// describe("Problema de tipus de funció", () => {
+describe("Problema de tipus de funció", () => {
 
-//   const addListener = (onFocusChange: unknown) => {
-//     window.addEventListener("focus", () => {
-//       onFocusChange(true);
-//     });
+  const addListener = (onFocusChange: (isFocused: boolean) => void) => {
+    window.addEventListener("focus", () => {
+      onFocusChange(true);
+    });
 
-//     window.addEventListener("blur", () => {
-//       onFocusChange(false);
-//     });
-//   };
+    window.addEventListener("blur", () => {
+      onFocusChange(false);
+    });
+  };
 
-//   addListener((isFocused) => {
-//     console.log({ isFocused });
+  addListener((isFocused) => {
+    console.log({ isFocused });
 
-//     type tests = [Expect<Equal<typeof isFocused, boolean>>];
-//   });
-// });
+    type tests = [Expect<Equal<typeof isFocused, boolean>>];
+  });
+});
 
 // /*
 // Repte 18:
